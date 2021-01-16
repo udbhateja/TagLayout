@@ -1,0 +1,13 @@
+use_frameworks!
+
+platform :ios, '9.0'
+
+target 'TagLayout_Example' do
+  pod 'TagLayout', :path => '../'
+
+  target 'TagLayout_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
