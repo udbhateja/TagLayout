@@ -50,7 +50,8 @@ Set the Layout of CollectionView as *Custom* and enter *TagLayout* as the layout
 Make sure the target is also set as *TagLayout*.
 
 Refer screenshot below:
-![Screenshot](Screenshots/storyboard)
+
+![](Screenshots/storyboard.png)
 
 
 In your ViewController:
