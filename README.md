@@ -104,7 +104,8 @@ I'd love to see you contributing to this project by proposing or adding features
 ## Author
 
 udbhateja (udaybhateja@ymail.com)
-bit.ly/udbhateja
+
+https://bit.ly/udbhateja
 
 ## License
 
