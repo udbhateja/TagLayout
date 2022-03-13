@@ -77,12 +77,12 @@ public class TagLayout: UICollectionViewLayout {
         let insets      = collectionView.contentInset
         contentWidth    = collectionView.bounds.width - (insets.left + insets.right)
         
-        let height = (delegate?.rowHeight() ?? defaultRowHeight) + (cellSpacing*2)
+        let height = (delegate?.rowHeight(layout: self) ?? defaultRowHeight) + (cellSpacing*2)
         
         var rowWidth: CGFloat = 0
         for i in 0 ..< noOfItems {
             let indexPath = IndexPath(item: i, section: 0)
-            let textWidth = delegate?.widthForItem(at: indexPath) ?? defaultCellWidth
+            let textWidth = delegate?.widthForItem(at: indexPath, layout: self) ?? defaultCellWidth
             let width = textWidth + (cellSpacing*2)
             let frame = CGRect(
                 x: xOffset[i],
@@ -102,7 +102,7 @@ public class TagLayout: UICollectionViewLayout {
             
             if i < noOfItems-1 {
                 let nextIP = IndexPath(item: i+1, section: 0)
-                let nextWidth = delegate?.widthForItem(at: nextIP) ?? defaultCellWidth
+                let nextWidth = delegate?.widthForItem(at: nextIP, layout: self) ?? defaultCellWidth
                 if rowWidth + nextWidth + cellSpacing <= contentWidth {
                     xOffset[i+1] = xOffset[i] + width
                     yOffset[i+1] = yOffset[i]
@@ -123,7 +123,7 @@ public class TagLayout: UICollectionViewLayout {
         let insets      = collectionView.contentInset
         contentHeight   = collectionView.bounds.height - (insets.top + insets.bottom)
         
-        let rowHeight   = (delegate?.rowHeight() ?? defaultRowHeight) + (cellSpacing*2)
+        let rowHeight   = (delegate?.rowHeight(layout: self) ?? defaultRowHeight) + (cellSpacing*2)
         let noOfRows    = Int(contentHeight / rowHeight)
         var yOffset: [CGFloat] = []
         for row in 0 ..< noOfRows {
@@ -135,7 +135,7 @@ public class TagLayout: UICollectionViewLayout {
         
         for i in 0 ..< collectionView.numberOfItems(inSection: 0) {
             let indexPath = IndexPath(item: i, section: 0)
-            let textWidth = delegate?.widthForItem(at: indexPath) ?? defaultCellWidth
+            let textWidth = delegate?.widthForItem(at: indexPath, layout: self) ?? defaultCellWidth
             let width = textWidth + (cellSpacing*2)
             let frame = CGRect(
                 x       : xOffset[row],

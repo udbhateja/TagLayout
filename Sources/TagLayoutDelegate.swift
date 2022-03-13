@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - TagLayoutDelegate
-public protocol TagLayoutDelegate: class {
-    func widthForItem(at indexPath: IndexPath) -> CGFloat
-    func rowHeight() -> CGFloat
+public protocol TagLayoutDelegate: AnyObject {
+    func widthForItem(at indexPath: IndexPath, layout: TagLayout) -> CGFloat
+    func rowHeight(layout: TagLayout) -> CGFloat
 }
